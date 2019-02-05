@@ -56,14 +56,13 @@ public class AList<T> {
   /** Gets element i from AList.
   * @throws ArrayIndexOutOfBoundsException if 0 <= i < size does not hold */
   public T get(int i) {
-    // TODO 3a
-    throw new UnsupportedOperationException(); // delete this once implemented!
+    return a[i];
   }
 
   /** Sets the ith element of the list to value.
   * @throws ArrayIndexOutOfBoundsException if 0 <= i < size does not hold */
   public void put(int i, T value) {
-    // TODO 3b
+    a[i] = value;
   }
 
   /** Appends value at the end of the AList, increasing size by 1.
