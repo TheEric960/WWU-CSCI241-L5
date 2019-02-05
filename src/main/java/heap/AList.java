@@ -68,15 +68,19 @@ public class AList<T> {
   /** Appends value at the end of the AList, increasing size by 1.
   * Grows the array if needed to fit the appended value */
   public void append(T value) {
-    // TODO 4a
+    int tmp = size;
+    growIfNeeded(size + 1);
+    size = tmp;
+    a[size] = value;
+    size++;
   }
 
   /** Removes and returns the value at the end of the AList.
   *  this *does* modify size and cannot modify capacity.
   *  @throws NoSuchElementException if size == 0*/
   public T pop() {
-    // TODO 4b
-    throw new UnsupportedOperationException(); // delete this once implemented!
+    size--;
+    return a[size];
   }
 
   /*  Create and return a T[] of size n.
