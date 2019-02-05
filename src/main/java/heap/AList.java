@@ -26,7 +26,8 @@ public class AList<T> {
 
   /** Creates an AList with the given capacity */
   public AList(int capacity) {
-    // TODO 1
+    a = createArray(capacity);
+    size = 0;
   }
 
   /* Grows a to double its current size if newSize exceeds a's capacity. Does
