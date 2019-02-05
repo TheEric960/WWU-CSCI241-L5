@@ -38,6 +38,7 @@ public class AList<T> {
     while (newSize > a.length) {
       size = a.length * 2;
       T[] tmp = createArray(size);
+      // make sure the new array can support the newSize, else expand more
       if (tmp.length >= newSize) {
         System.arraycopy(a, 0, tmp, 0, a.length);
         a = tmp;
@@ -70,7 +71,7 @@ public class AList<T> {
   public void append(T value) {
     int tmp = size;
     growIfNeeded(size + 1);
-    size = tmp;
+    size = tmp; // size modified in growIfNeeded, must reset
     a[size] = value;
     size++;
   }
