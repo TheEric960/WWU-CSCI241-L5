@@ -35,14 +35,22 @@ public class AList<T> {
   * and copying the old array's contents into the new one. This does *not*
   * change the AList's size. */
   protected void growIfNeeded(int newSize) {
-    // TODO 2a
+    while (newSize > a.length) {
+      size = a.length * 2;
+      T[] tmp = createArray(size);
+      if (tmp.length >= newSize) {
+        System.arraycopy(a, 0, tmp, 0, a.length);
+        a = tmp;
+      }
+    }
   }
 
   /** Resizes the AList.
   *  this *does* modify the size, and may modify the capacity if newsize
   *  exceeds capacity. */
   public void resize(int newsize) {
-    // TODO 2b
+    growIfNeeded(newsize);
+    size = newsize;
   }
 
   /** Gets element i from AList.
